@@ -21,12 +21,13 @@ const drawNumber = () => {
     return drawnNumbers;
 }
 const GameBoard = styled.div`
-    height: 100%;
+    height: 90%;
     width: 100%;
     display: grid;
-    grid-template-columns: 2.5fr 1.5fr;
+    grid-template-columns: 2.4fr 1.5fr;
     justify-items: center;
     border: 8px solid greenyellow;
+    background-color: ${props => props.theme.backgroundColor};
 `;
 const Roulette = styled.div`
     display: flex;
@@ -93,9 +94,9 @@ const GameResult = styled.div`
     div{
         display: flex;
         justify-content: space-between;
-        gap: 4px 12px;
+        gap: 4px 10px;
         padding: 4px;
-        font-size: 20px;
+        font-size: 18px;
     }
 `;
 interface IPlayer{
