@@ -80,12 +80,13 @@ Error generating stack: `+a.message+`
     background-color: whitesmoke;
     opacity: ${c=>c.opacity};
 `;function Zv({index:c,value:r}){let o=1;return(c===1||c===9)&&r===1&&(o=0),(c===2||c===8)&&(o=0),(c===3||c===7)&&(r===1||r===2||r===3)&&(o=0),(c===4||c===6)&&r!==6&&(o=0),c===5&&(r===2||r===4||r===6)&&(o=0),mt.jsx(Qv,{opacity:o})}function Vv({value:c=6,rotate:r=!1}){return mt.jsx(Xv,{rotate:r?"on":"off",children:new Array(9).fill(0).map((o,s)=>mt.jsx(Zv,{index:s+1,value:c},s+1))})}const uh=()=>Math.floor(Math.random()*6)+1,Lv=()=>{const c=Math.floor(Math.random()*10)+1;return c<=5?5:c},Kv=()=>{const c=Lv(),r=new Array(c);for(let o=0;o<c;o++)r[o]=uh();return r},wv=nl.div`
-    height: 100%;
+    height: 90%;
     width: 100%;
     display: grid;
-    grid-template-columns: 2.5fr 1.5fr;
+    grid-template-columns: 2.4fr 1.5fr;
     justify-items: center;
     border: 8px solid greenyellow;
+    background-color: ${c=>c.theme.backgroundColor};
 `,Jv=nl.div`
     display: flex;
     flex-direction: column;
@@ -142,24 +143,24 @@ Error generating stack: `+a.message+`
     div{
         display: flex;
         justify-content: space-between;
-        gap: 4px 12px;
+        gap: 4px 10px;
         padding: 4px;
-        font-size: 20px;
+        font-size: 18px;
     }
 `;function Pv(){const[c,r]=jl.useState(!1),[o,s]=jl.useState(!1),[S,z]=jl.useState(1),[R,Y]=jl.useState([{name:"palyer 1",status:"ready",score:0}]),M=()=>{c||Y(q=>q.length>=10?q:[...q,{name:`player ${q.length+1}`,status:"wait",score:0}])},E=()=>{c||Y(q=>q.length===1?q:q.slice(0,q.length-1))},U=()=>{s(q=>!q)},G=()=>{if(c){if(!confirm("really reset!"))return;Y([{name:"palyer 1",status:"ready",score:0}])}r(q=>!q)};return jl.useEffect(()=>{if(!o){const Z=Kv(),$=Z[Z.length-1];if(z($),!c)return;const k=R;for(let ct=0;ct<k.length;ct++)if(k[ct].status==="ready"){k[ct].status="result",k[ct].score=$,ct<k.length-1&&(k[ct+1].status="ready");break}Y(k);return}const q=setInterval(()=>z(uh()),500);return()=>clearInterval(q)},[o]),mt.jsxs(wv,{children:[mt.jsxs(Jv,{children:[mt.jsx(Vv,{value:S,rotate:o}),mt.jsxs(kv,{children:[mt.jsx("p",{children:"1. add player if you want."}),mt.jsx("p",{children:"2. push 'Game Start' button."}),mt.jsx("p",{children:"3. push 'Start' button."})]}),mt.jsx(Wv,{onClick:U,children:o?"Stop":"Start"})]}),mt.jsxs($v,{children:[mt.jsx("h2",{children:"Score Board"}),mt.jsxs(Fv,{children:[mt.jsx(Pf,{onClick:M,isStart:c,children:"ADD"}),mt.jsx(Pf,{onClick:E,isStart:c,children:"DEL"}),mt.jsxs(Pf,{onClick:G,isStart:c,children:["Game ",c?"Reset":"Start"]})]}),mt.jsx(Iv,{children:R.map((q,Z)=>mt.jsxs("div",{children:[mt.jsx("span",{children:q.name}),mt.jsx("span",{children:q.status}),mt.jsx("span",{children:q.score})]},Z))})]})]})}const tm=nl.div`
   width: 100vw;
   height: 100vh;
-  background-color: ${c=>c.theme.backgroundColor};
 `,lm=nl.div`
   margin: 0px auto;
   display: flex;
   flex-direction: column;
-  width: 800px;
+  width: 500px;
   height: 800px;
   align-items: center;
 `,am=nl.span`
   padding: 12px;
   margin: 40px;
-  color: ${c=>c.theme.textColor};
+  color: ${c=>c.theme.backgroundColor};
   font-size: 32px;
-`;function em(){return mt.jsx(tm,{children:mt.jsxs(lm,{children:[mt.jsx(am,{children:"Fun Fun Dise Game!"}),mt.jsx(Pv,{})]})})}const um={textColor:"white",backgroundColor:"black"};Cy.createRoot(document.getElementById("root")).render(mt.jsx(jl.StrictMode,{children:mt.jsx(Yv,{theme:um,children:mt.jsx(em,{})})}));
+  font-weight: bold;
+`;function em(){return mt.jsx(tm,{children:mt.jsxs(lm,{children:[mt.jsx(am,{children:"Fun Fun Dise Game!"}),mt.jsx(Pv,{})]})})}const um={textColor:"#e84118",backgroundColor:"#2f3640"};Cy.createRoot(document.getElementById("root")).render(mt.jsx(jl.StrictMode,{children:mt.jsx(Yv,{theme:um,children:mt.jsx(em,{})})}));
